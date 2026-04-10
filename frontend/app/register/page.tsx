@@ -46,7 +46,7 @@ export default function RegisterPage() {
       setMessage(response.data.error);
       setIsSuccess(false);
     } else {
-      setMessage("Registerd");
+      setMessage("Registered");
       setIsSuccess(true);
       reset();
     }
