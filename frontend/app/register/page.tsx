@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
 
-// ✅ Define validation schema
+// Define validation schema
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
 
