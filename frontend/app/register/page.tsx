@@ -105,6 +105,9 @@ export default function RegisterPage() {
 
           {/* DOB */}
           <div>
+            <label className="mb-1 block text-sm font-medium">
+               Date of Birth
+            </label>
             <input
               {...register("dob")}
               type="date"
