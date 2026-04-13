@@ -5,6 +5,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
+import { useEffect } from "react";
+
 
 // Define validation schema
 const schema = z.object({
@@ -20,6 +22,16 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function RegisterPage() {
+  useEffect(() => {
+  const wakeUpServer = async () => {
+    try {
+      await axios.get(`${DATABASE_URL}`);
+    } catch (error) {
+      console.log("Backend wake-up request sent");
+    }
+  };
+  wakeUpServer();
+  }, []);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
